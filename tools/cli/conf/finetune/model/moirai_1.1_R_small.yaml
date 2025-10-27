@@ -1,0 +1,36 @@
+_target_: uni2ts.model.moirai.MoiraiFinetune
+beta1: 0.9
+beta2: 0.98
+loss_func:
+  _target_: uni2ts.loss.packed.PackedNLLLoss
+lr: 1e-4
+max_dim: 128
+max_mask_ratio: 0.5
+min_mask_ratio: 0.15
+min_patches: 2
+module:
+  _target_: uni2ts.model.moirai.MoiraiModule.from_pretrained
+  pretrained_model_name_or_path: Salesforce/moirai-1.1-R-small
+module_kwargs:
+  _target_: builtins.dict
+  attn_dropout_p: 0.0
+  d_model: 384
+  distr_output:
+    _target_: uni2ts.distribution.MixtureOutput
+    components:
+    - _target_: uni2ts.distribution.StudentTOutput
+    - _target_: uni2ts.distribution.NormalFixedScaleOutput
+    - _target_: uni2ts.distribution.NegativeBinomialOutput
+    - _target_: uni2ts.distribution.LogNormalOutput
+  dropout_p: 0.0
+  max_seq_len: 512
+  num_layers: 6
+  patch_sizes: ${as_tuple:[8, 16, 32, 64, 128]}
+  scaling: true
+num_training_steps: ${mul:${trainer.max_epochs},${train_dataloader.num_batches_per_epoch}}
+num_warmup_steps: 0
+val_metric:
+- _target_: uni2ts.loss.packed.PackedMSELoss
+- _target_: uni2ts.loss.packed.PackedNRMSELoss
+  normalize: absolute_target_squared
+weight_decay: 1e-1

@@ -1,0 +1,34 @@
+0:
+  params:
+  - module.param_proj.proj.components.3.scale.bias
+  - module.param_proj.proj.components.3.scale.weight
+  - module.param_proj.proj.components.3.loc.bias
+  - module.param_proj.proj.components.3.loc.weight
+  - module.param_proj.proj.components.2.logits.bias
+  - module.param_proj.proj.components.2.logits.weight
+  - module.param_proj.proj.components.2.total_count.bias
+  - module.param_proj.proj.components.2.total_count.weight
+  - module.param_proj.proj.components.1.loc.bias
+  - module.param_proj.proj.components.1.loc.weight
+  - module.param_proj.proj.components.0.scale.bias
+  - module.param_proj.proj.components.0.scale.weight
+  - module.param_proj.proj.components.0.loc.bias
+  - module.param_proj.proj.components.0.loc.weight
+  - module.param_proj.proj.components.0.df.bias
+  - module.param_proj.proj.components.0.df.weight
+  - module.param_proj.proj.weights_logits.bias
+  - module.param_proj.proj.weights_logits.weight
+  - module.encoder.norm.weight
+  - module.encoder.layers.5.norm2.weight
+  - module.encoder.layers.5.norm1.weight
+  - module.encoder.layers.5.ffn.fc_gate.weight
+  - module.encoder.layers.5.ffn.fc2.weight
+  - module.encoder.layers.5.ffn.fc1.weight
+  - module.encoder.layers.5.self_attn.out_proj.weight
+  - module.encoder.layers.5.self_attn.k_norm.weight
+  - module.encoder.layers.5.self_attn.q_norm.weight
+  - module.encoder.layers.5.self_attn.v_proj.weight
+  - module.encoder.layers.5.self_attn.k_proj.weight
+  - module.encoder.layers.5.self_attn.q_proj.weight
+  - module.encoder.layers.5.self_attn.var_attn_bias.emb.weight
+ 
